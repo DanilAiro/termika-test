@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Форма для Стёпы</title>
+    <link rel="stylesheet" href="../styles/style.css">
+  </head>
+  <body>
+    <header>
+
+    </header>
+    <main>
+      <div class="form-feedback-wrapper">
+        <div class="container">
+          <div class="form-wrapper">
+            <form id="form-feedback" method="post">
+              <h3>Заказать обратный звонок</h3>
+              <div>
+                <div class="form_line">
+                  <div class="form_line-block form_line-block--half">
+                    <label>Ф.&nbsp;И.&nbsp;О.</label>
+                    <input class="form_input" type="text" maxlength="100" name="name" placeholder="Иванов Иван Иванович *" required>
+                  </div>
+                  <div class="form_line-block form_line-block--half">
+                    <label>Телефон</label>
+                    <input class="form_input" type="tel" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" title="Формат: +79876543210, 89876543210 или +7 (987) 654-32-10" name="phone" placeholder="+7 (987) 654-32-10 *" required>
+                  </div>
+                </div>
+                <div class="form_line">
+                  <div class="form_line-block form_line-block--half">
+                    <label>Электронная почта</label>
+                    <input class="form_input" type="email" maxlength="50" name="email" placeholder="E-mail *" required>
+                  </div>
+                  <div class="form_line-block form_line-block--half">
+                    <label>Компания</label>
+                    <input class="form_input" type="text" pattern="^\S+\s+\S+$" title="Два слова" maxlength="50" name="company" placeholder="OOO «Компания» *" required>
+                  </div>
+                </div>
+                <div class="form_line">
+                  <div class="form_line-block form_line-block--half">
+                    <label>Город</label>
+                    <input class="form_input" type="text" maxlength="30" name="city" placeholder="Город *" required>
+                  </div>
+                  <div class="form_line-block form_line-block--half">
+                    <label>Выберите продукт</label>
+                    <select name="product" class="form_select">
+                      <option value=""></option>
+                      <option value="0">Система «ОЛИМПОКС»</option>
+                      <option value="1">Система «ОЛИМПОКС:Предприятие»</option>
+                      <option value="2">Система «ОЛИМПОКС:Инструктаж»</option>
+                      <option value="3">«ОЛИМПОКС:Редактор»</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form_line form_line-block form_line-block--half">
+                  <label>Комментарий</label>
+                  <textarea name="textarea" class="form_input form_textarea" placeholder="Отличное тестовое задание..." maxlength="500"></textarea>
+                </div>
+              </div>
+              <div class="form_submit-block">
+                <button class="button-form">Отправить заявку</button>
+              </div>
+            </form>
+          </div>    
+        </div>
+      </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="../scripts/form-submit.js"></script>
+  </body>
+</html>
