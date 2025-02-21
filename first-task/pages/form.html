@@ -23,7 +23,7 @@
                   </div>
                   <div class="form_line-block form_line-block--half">
                     <label>Телефон</label>
-                    <input class="form_input" type="tel" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" title="Формат: +79876543210, 89876543210 или +7 (987) 654-32-10" name="phone" placeholder="+7 (987) 654-32-10 *" required>
+                    <input class="form_input phone_input" type="tel" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" title="Формат: +79876543210" name="phone" placeholder="+7 (987) 654-32-10 *" required>
                   </div>
                 </div>
                 <div class="form_line">
@@ -68,6 +68,7 @@
     <footer>
 
     </footer>
+    <script src="https://unpkg.com/imask"></script>
     <script src="../scripts/form-submit.js"></script>
   </body>
 </html>

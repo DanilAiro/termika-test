@@ -1,5 +1,12 @@
 let form = document.querySelector('form');
 let area = form.getElementsByClassName('textarea');
+let phone = form.querySelector('input[name="phone"]');
+
+var maskOptions = {
+    mask: '+{7}(000)000-00-00',
+    lazy: false
+} 
+let mask = new IMask(phone, maskOptions);
 
 form.onsubmit = function() {
     alert('Форма успешно отправлена!')
