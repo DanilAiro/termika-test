@@ -31,14 +31,18 @@ if ($method === 'OPTIONS') {
 }
 
 $routes = [
-    '/api/collections' => [$controller, 'getCollections'],
-    '/api/product/(\d+)' => [$controller, 'getProduct']
+    'GET' => [
+        '/api/collections' => [$controller, 'getCollections'],
+        '/api/product/(\d+)' => [$controller, 'getProduct']
+    ]
 ];
 
-foreach ($routes as $route => $handler) {
-    if (preg_match("#^$route$#", $path, $matches)) {
-        call_user_func_array($handler, array_slice($matches, 1));
-        exit;
+if (isset($routes[$method])) {
+    foreach ($routes[$method] as $route => $handler) {
+        if (preg_match("#^$route$#", $path, $matches)) {
+            call_user_func_array($handler, array_slice($matches, 1));
+            exit;
+        }
     }
 }
 

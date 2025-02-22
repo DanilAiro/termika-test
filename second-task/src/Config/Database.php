@@ -1,26 +1,27 @@
 <?php
 
 class Database {
-    private string $host = "";
-    private string $database = "";
-    private string $username = "";
-    private string $password = "";
+    private string $host;
+    private string $database;
+    private string $username;
+    private string $password;
 
     private PDO $conn;
 
     public function getConnection(): PDO {
-        try {
-            $this->conn = new PDO(
-                "mysql:host={$this->host};dbname={$this->database}",
-                $this->username,
-                $this->password
-            );
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            return $this->conn;
-        } catch (PDOException $e) {
-            error_log("Database connection failed: " . $e->getMessage());
-            throw new Exception("Database connection failed.");
+        if (!isset($this->conn)) {
+            try {
+                $this->conn = new PDO(
+                    "mysql:host={$_SERVER['DB_HOST']};dbname={$_SERVER['DB_NAME']};charset=utf8mb4",
+                    $_SERVER['DB_USER'],
+                    $_SERVER['DB_PASS']
+                );
+                $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (PDOException $e) {
+                error_log("Database connection failed: " . $e->getMessage());
+                throw new Exception("Database connection failed.");
+            }
         }
+        return $this->conn;
     }
 }

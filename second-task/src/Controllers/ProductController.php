@@ -13,7 +13,7 @@ class ProductController {
     }
 
     private function sendJSON($data, $statusCode = 200): void {
-        header('Content-Type: application/json');
+        header('Content-Type: application/json; charset=UTF-8');
         http_response_code($statusCode);
         echo json_encode($data);
     }
@@ -22,13 +22,19 @@ class ProductController {
         try {
             $collections = $this->collection->getAllWithProducts();
             $this->sendJSON(['data' => $collections]);
-        } catch (Exception $th) {
-            $this->sendJSON(['error' => $th->getMessage()], 500);
+        } catch (\Throwable $th) {
+            error_log("Error in getProduct: " . $th->getMessage());
+            $this->sendJSON(['error' => 'Internal server error'], 500);
         }
     }
 
     public function getProduct(int $id): void {
         try {
+            if ($id <= 0) {
+                $this->sendJSON(['error' => 'Invalid product ID'], 400);
+                return;
+            }
+
             $product = $this->product->getById($id);
 
             if (!$product) {
@@ -37,8 +43,9 @@ class ProductController {
             }
 
             $this->sendJSON(['data' => $product]);
-        } catch (Exception $th) {
-            $this->sendJSON(['error' => $th->getMessage()], 500);
+        } catch (\Throwable $th) {
+            error_log("Error in getProduct: " . $th->getMessage());
+            $this->sendJSON(['error' => 'Internal server error'], 500);
         }
     }
 }
