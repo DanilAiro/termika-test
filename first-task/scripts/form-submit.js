@@ -1,8 +1,8 @@
-let form = document.querySelector('form');
+let form = document.querySelector('#form-feedback');
 let area = form.getElementsByClassName('textarea');
 let phone = form.querySelector('input[name="phone"]');
 
-var maskOptions = {
+let maskOptions = {
     mask: '+{7}(000)000-00-00',
     lazy: false
 } 

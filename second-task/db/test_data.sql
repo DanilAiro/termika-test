@@ -1,4 +1,4 @@
-INSERT INTO collection (name) VALUES 
+INSERT INTO collections (name) VALUES 
 ('Коллекция 1'),
 ('Коллекция 2'),
 ('Коллекция 3'),
@@ -6,29 +6,29 @@ INSERT INTO collection (name) VALUES
 ('Коллекция 5'),
 ('Коллекция 6');
 
-INSERT INTO product (col_id, name, price) VALUES
+INSERT INTO products (collection_id, name, price) VALUES
 (1, 'Табурет 1-1', 100.00),
 (1, 'Табурет 1-2', 150.00);
 
-INSERT INTO product (col_id, name, price) VALUES
+INSERT INTO products (collection_id, name, price) VALUES
 (2, 'Табурет 2-1', 200.00),
 (2, 'Табурет 2-2', 250.00),
 (2, 'Табурет 2-3', 300.00);
 
-INSERT INTO product (col_id, name, price) VALUES
+INSERT INTO products (collection_id, name, price) VALUES
 (3, 'Табурет 3-1', 50.00),
 (3, 'Табурет 3-2', 75.00),
 (3, 'Табурет 3-3', 100.00),
 (3, 'Табурет 3-4', 125.00),
 (3, 'Табурет 3-5', 150.00);
 
-INSERT INTO product (col_id, name, price) VALUES
+INSERT INTO products (collection_id, name, price) VALUES
 (4, 'Табурет 4-1', 200.00),
 (4, 'Табурет 4-2', 250.00),
 (4, 'Табурет 4-3', 300.00),
 (4, 'Табурет 4-4', 325.00);
 
-INSERT INTO product (col_id, name, price) VALUES
+INSERT INTO products (collection_id, name, price) VALUES
 (5, 'Табурет 5-1', 50.00),
 (5, 'Табурет 5-2', 75.00),
 (5, 'Табурет 5-3', 100.00),
@@ -36,7 +36,7 @@ INSERT INTO product (col_id, name, price) VALUES
 (5, 'Табурет 5-5', 150.00),
 (5, 'Табурет 5-6', 200.00);
 
-INSERT INTO product (col_id, name, price) VALUES
+INSERT INTO products (collection_id, name, price) VALUES
 (6, 'Табурет 6-1', 50.00),
 (6, 'Табурет 6-2', 75.00),
 (6, 'Табурет 6-3', 100.00),

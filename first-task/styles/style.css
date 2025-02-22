@@ -164,6 +164,8 @@ textarea {
 .form-feedback-wrapper {
 	padding: 140px 0;
 	background-image: url("../pages/content/image.png");
+  background-attachment: fixed;
+  min-height: 100vh;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
