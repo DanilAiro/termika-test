@@ -3,15 +3,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('productModal');
     const productName = document.getElementById('productName');
     const productPrice = document.getElementById('productPrice');
+    const productCollection = document.getElementById('productCollection');
     const closeButton = document.querySelector('.close');
 
     setupModalListeners(modal, closeButton);
     fetchCollections(gridContainer);
 });
 
-function openModal(name, price, productName, productPrice, modal) {
+function openModal(name, price, collectionName, productName, productPrice, productCollection, modal) {
     productName.textContent = name;
     productPrice.textContent = `Цена: ${price}`;
+    productCollection.textContent = collectionName;
     modal.style.display = 'flex';
 }
 
@@ -106,6 +108,7 @@ async function fetchProductDetails(product) {
     const modal = document.getElementById('productModal');
     const productName = document.getElementById('productName');
     const productPrice = document.getElementById('productPrice');
+    const productCollection = document.getElementById('productCollection');
 
     try {
         const response = await fetch(`http://localhost/second-task/src/public/api/product/${product.id}`);
@@ -115,9 +118,9 @@ async function fetchProductDetails(product) {
         }
 
         const productData = await response.json();
-        openModal(product.name, productData.data.price, productName, productPrice, modal);
+        openModal(product.name, productData.data.price, productData.data.collection_name, productName, productPrice, productCollection, modal);
     } catch (error) {
         console.error('Error fetching product details:', error);
-        openModal(product.name, 'Цена недоступна', productName, productPrice, modal);
+        openModal(product.name, 'Цена недоступна', '', productName, productPrice, productCollection, modal);
     }
 }
