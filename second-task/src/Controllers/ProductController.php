@@ -23,7 +23,7 @@ class ProductController {
             $collections = $this->collection->getAllWithProducts();
             $this->sendJSON(['data' => $collections]);
         } catch (\Throwable $th) {
-            error_log("Error in getProduct: " . $th->getMessage());
+            error_log("Error in getCollections: " . $th->getMessage());
             $this->sendJSON(['error' => 'Internal server error'], 500);
         }
     }

@@ -7,19 +7,6 @@ class Collection {
         $this->db = $db;
     }
 
-    public function getAll(): array {
-        try {
-            $query = "SELECT * FROM collections";
-            $data = $this->db->prepare($query);
-            $data->execute();
-
-            return $data->fetchAll(PDO::FETCH_ASSOC);
-        } catch (\Throwable $th) {
-            error_log("Error in getById: " . $th->getMessage());
-            $this->sendJSON(['error' => 'Internal server error'], 500);
-        }        
-    }
-
     public function getAllWithProducts(): array {
         try {
             $query = "SELECT c.id as collection_id,
@@ -47,8 +34,7 @@ class Collection {
     
             return $result;
         } catch (\Throwable $th) {
-            error_log("Error in getById: " . $th->getMessage());
-            $this->sendJSON(['error' => 'Internal server error'], 500);
+            throw new Exception("Error in getAllWithProducts: " . $th->getMessage());
         }
     }
 }
