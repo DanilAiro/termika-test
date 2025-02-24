@@ -7,4 +7,4 @@
     Для корректной работы на веб-сервере необходимо задать переменные среды DB_HOST, DB_NAME, DB_USER, DB_PASS.
 
 
-3. dfsdf
+3. Битрикс [компонент](/third-task/time_component/)

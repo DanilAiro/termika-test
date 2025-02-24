@@ -21,7 +21,7 @@ function closeModal(modal) {
     modal.style.display = 'none';
 }
 
-// Настройка обработчиков событий для модального окна
+// Закрытие карточки товара
 function setupModalListeners(modal, closeButton) {
     modal.addEventListener('click', (event) => {
         if (event.target === modal) {
@@ -40,7 +40,6 @@ function fetchCollections(gridContainer) {
         .catch(error => handleFetchError(error, gridContainer));
 }
 
-// Обработка ответа от fetch
 function handleFetchResponse(response) {
     if (!response.ok) {
         throw new Error('Network response was not ok');
